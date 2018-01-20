@@ -1,0 +1,38 @@
+These days modern browsers have web sockets which allow us to make connection
+with each of our clients to the server. Over this connection we can send and receive data
+from the server in real time.
+
+For this we need to install the socket.io
+
+1-Install express
+2-require http module and create a server which will dispatch request to the express.
+3-require socket.io module--save which adds to the package.json which allows it to use the http server to listen for requests
+4=Note that express ans socket.io are using the same http server.
+5-listen for connection event from the client inside the socket.io and when a client connects  we will log to the 
+6-console that a client has connected.
+7-then we serve our index.html file using the sendFile function through our express.
+8-make the server listen on PORT-8080
+9-create an html file and include the socket.io library which gets loaded in our clients browsers.
+10- now connect to our socket.io server.
+11- in our app.js(server) we are now including the client.emit messges event that sends back 
+a message "Hello: World" inside of an object back to our client which is also the browser.
+12-After this inside of our browser (index.html) we are going to listen to our messages
+event and when it gets called we call alert function and have it alert with the data
+that it received looking up the hello property in the server(app.js) with the value of
+"Hello".
+13- now we run our app.js it starts or node serverwhich connects to the localhost 
+8080 browser through socket.io and send a message back into our browser and an alert 
+window pops up. Also we get a log message saying the Client connected.
+
+
+
+
+
+
+
+
+
+
+
+
+

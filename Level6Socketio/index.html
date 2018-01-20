@@ -1,0 +1,12 @@
+//in the html that we are going to send let's include our socket.io library which will
+//get loaded in our clients browser and connect to our socket.io server.
+
+//inside this browser we are going to listen to that emit messages event in the app.js file.
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io.connect('http://localhost:8080');
+    socket.on('messages', function(data) {//listen for the messages event.
+    alert(data.hello);//when it gets called we call alert with the data that it received
+    //looking up the hello property in app.js file
+    });
+</script>

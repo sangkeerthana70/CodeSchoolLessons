@@ -1,0 +1,19 @@
+/* we need to write some javascript code so that when somebody submits a new code in 
+the chat room we hook on the chat_form submit button and we grab the message from the
+client chat_input value and assign it to the message variable.
+Then we will emit that message event on the server by calling the socket.io emit
+messages event and send back the message the client typed in the chat-room.
+start the server and type a message and it will be sent back to us.*/
+
+
+
+<script>
+    var socket = io.connect('http://localhost:8080');
+        $('chat_form').submit(function(e){
+            var message = $('chat_input').val();
+            socket.emit('messages', message);//emit the messages event on the server.
+        });
+</script>
+        
+        
+        

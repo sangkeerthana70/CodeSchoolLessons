@@ -1,0 +1,71 @@
+/* Client socket.io Setup.
+1-In our html file, load the socket.io.js script and connect to the socket.io server.
+This will include the socket.io library which will be loaded in our clients browsers*/
+<script src="/socket.io/socket.io.js"></script>
+2-Load the socket.io.js script. The socket.io.js path you should use is 
+'/socket.io/socket.io.js'. Express knows to serve the socket.io client js for this path.
+This following line will connect to the socket.io server*/
+3-Using the global io object that's now available for us, connect to the socket.io 
+server at http://localhost:8080.*/
+var server = io.connect('http://localhost:8080');//// use the socket.io server to connect to localhost:8080 here
+//==============================================================================<a href="mailto:"></a>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  // use the socket.io server to connect to localhost:8080 here
+  var server = io.connect('http://localhost:8080');
+</script>
+//============================================================================
+/*Challenge 6.4
+Listening For Questions 
+1-In our client below, listen for 'question' events from the server and call the 
+insertQuestion function whenever the event fires.
+2-First, listen for 'question' events from the server
+3-Now, have the event callback function call the insertQuestion function. The 
+insertQuestion function is already created for you, and it's placed in its own file.
+It expects exactly one argument - the question.
+
+<script>
+  var server = io.connect('http://localhost:8080');
+
+  // Insert code here
+  server.on('question', function(question) {//Step-2listen for 'question' events from the server.
+    insertQuestion(question);//Step-3 above.
+});        
+</script>
+//=============================================================================================
+/* Challenge-6.8 
+Answering Question Client 
+Now on the client, listen for the 'answer' event and then add the appropriate data
+to the DOM.
+Task-1/2 Listen for the 'answer' event off of the server.
+Task-2/2 Call the answerQuestion function, passing in both the question and the answer
+that was broadcast from the server*/
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+  var server = io.connect('http://localhost:8080');
+
+  server.on('question', function(question) {
+    insertQuestion(question);
+  });
+  
+  server.on('answer', function(question, answer){//Task-1/2
+    answerQuestion(question, answer);//Task 2/2
+
+  });
+   
+  //Don't worry about these methods, just assume 
+  //they insert the correct html into the DOM
+  // var insertQuestion = function(question) {
+  // }
+
+  // var answerQuestion = function(question, answer) {
+  // }
+  
+</script>
+ 
+
+
+
+
